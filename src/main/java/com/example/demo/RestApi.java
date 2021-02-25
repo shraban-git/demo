@@ -9,7 +9,7 @@ public class RestApi {
 	
 	@RequestMapping("/")
 	public String hello() {
-		return "hello";
+		return "welcome to automate tomcat git ";
 	}
 
 }
