@@ -4,12 +4,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping
 public class RestApi {
 	
 	@RequestMapping("/")
 	public String hello() {
-		return "welcome to automate tomcat git ";
+		return "<H1>DOCKET AUTOMATE DEPLOYMENT WITH JENKIN AND GIT<H1>";
 	}
 
 }
