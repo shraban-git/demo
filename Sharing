@@ -1,0 +1,126 @@
+package com.card.creditcard.oldways;
+
+public class NewUseInsideMethods {
+
+	public StudentOldTestingReturn OldLogicTesting(StudentOldTesting Student) {
+
+		StudentOldTestingReturn sturentReturn = new StudentOldTestingReturn();
+
+		OldBatchName batchName = new OldBatchName();
+		batchName.setId("1");
+		batchName.setName("test");
+
+		sturentReturn.setId(batchName.getId());
+		sturentReturn.setName(Student.getName());
+
+		return sturentReturn;
+
+	}
+
+}
+package com.card.creditcard.oldways;
+
+public class OldBatchName {
+
+	private String name;
+	private String id;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+}
+package com.card.creditcard.oldways;
+
+public class StudentOldTesting {
+	private String name;
+	private String id;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+}package com.card.creditcard.oldways;
+
+public class StudentOldTestingReturn {
+	private String name;
+	private String id;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+}
+
+
+--------
+package com.card.creditcard.oldways;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+//@RunWith(PowerMockRunner.class)
+//@PrepareForTest(fullyQualifiedNames = "com.card.creditcard.*")
+@ExtendWith(MockitoExtension.class)
+class NewUseInsideMethodsTest {
+
+//	@InjectMocks
+//	private NewUseInsideMethods insideMethods;
+	
+	@Test
+	void OldLogicTesting_test() throws Exception {
+
+//		System.out.println("");
+//		
+//		StudentOldTestingReturn myObjectMock = mock(StudentOldTestingReturn.class);
+//		PowerMockito.whenNew(StudentOldTestingReturn.class).withNoArguments().thenReturn(myObjectMock);
+//
+//		OldBatchName batchNameMock = mock(OldBatchName.class);
+//		PowerMockito.whenNew(OldBatchName.class).withNoArguments().thenReturn(batchNameMock);
+//
+		StudentOldTesting oldTesting = new StudentOldTesting();
+		oldTesting.setName("shraban");
+		oldTesting.setId("1");
+		NewUseInsideMethods insideMethods=new NewUseInsideMethods();
+		StudentOldTestingReturn result = insideMethods.OldLogicTesting(oldTesting);
+
+		Assertions.assertNotNull(result);
+		Assertions.assertEquals("shraban", result.getName());
+	}
+
+}
